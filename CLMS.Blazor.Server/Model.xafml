@@ -1,4 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
-
+  <NavigationItems NavigationStyle="Accordion">
+    <Items>
+      <Item Id="MyDetails" ViewId="ApplicationUser_DetailView" ObjectKey="@CurrentUserID" Caption="My Account" ImageName="BO_MyDetails" Index="0" IsNewNode="True" />
+      <Item Id="Book_ListView" ViewId="Book_ListView" ObjectKey="" Index="1" Caption="Books" IsNewNode="True" />
+      <Item Id="Author_ListView" ViewId="Author_ListView" ObjectKey="" Index="2" Caption="Authors" IsNewNode="True" />
+      <Item Id="Patron_ListView" ViewId="Patron_ListView" ObjectKey="" Caption="Patrons" Index="3" IsNewNode="True" />
+      <Item Id="Librarian_ListView" ViewId="Librarian_ListView" ObjectKey="" Caption="Librarians" Index="4" IsNewNode="True" />
+      <Item Id="Default" Caption="System" Index="99">
+        <Items>
+          <Item Id="Author_ListView" Removed="True" />
+          <Item Id="Book_ListView" Removed="True" />
+          <Item Id="Librarian_ListView" Removed="True" />
+          <Item Id="MyDetails" Removed="True" />
+          <Item Id="Patron_ListView" Removed="True" />
+          <Item Id="Reports" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="Dashboards" ViewId="DashboardData_ListView" ObjectKey="" Caption="Dashboards" IsNewNode="True" />
+              <Item Id="ReportsV2" ViewId="ReportDataV2_ListView" ObjectKey="" Caption="Reports" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="State Machine" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="XpoStateMachine_ListView" ViewId="XpoStateMachine_ListView" ObjectKey="" IsNewNode="True" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+      <Item Id="Reports" Removed="True" />
+      <Item Id="State Machine" Removed="True" />
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="22.2.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="22.2.5.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views DefaultListEditor="DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor" />
 </Application>
