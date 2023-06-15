@@ -35,5 +35,42 @@
     <SchemaModule Name="CloneObjectModule" Version="22.2.5.0" IsNewNode="True" />
     <SchemaModule Name="SystemModule" Version="22.2.5.0" IsNewNode="True" />
   </SchemaModules>
-  <Views DefaultListEditor="DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor" />
+  <Views DefaultListEditor="DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor">
+    <DetailView Id="Patron_DetailView" AllowEdit="True">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="Patron" RelativeSize="100" Direction="Horizontal">
+              <LayoutGroup Id="Auto6de1c82d-3090-458a-8637-e90ca55752e6" ShowCaption="False" Caption="" Index="0" RelativeSize="46.14003590664273" IsNewNode="True">
+                <LayoutItem Id="Name" ViewItem="Name" CaptionLocation="Top" Index="0" RelativeSize="6.572769953051643" IsNewNode="True" />
+                <LayoutItem Id="BirthDate" ViewItem="BirthDate" CaptionLocation="Top" Index="1" RelativeSize="5.39906103286385" IsNewNode="True" />
+                <LayoutItem Id="LoginAccount" ViewItem="LoginAccount" CaptionLocation="Top" Index="2" RelativeSize="5.39906103286385" IsNewNode="True" />
+                <LayoutItem Id="Item1" Index="3" RelativeSize="76.05633802816901" IsNewNode="True" />
+                <LayoutItem Id="AccountBalance" ViewItem="AccountBalance" CaptionLocation="Top" Index="4" RelativeSize="6.572769953051643" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Transactions_Group" ShowCaption="True" Caption="Transactions" Index="1" RelativeSize="53.85996409335727" IsNewNode="True">
+                <LayoutItem Id="Transactions" ViewItem="Transactions" Index="0" RelativeSize="100" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="AccountBalance" RelativeSize="26.288659793814432" CaptionLocation="Top" Removed="True" />
+              <LayoutItem Id="BirthDate" RelativeSize="23.195876288659793" CaptionLocation="Top" Removed="True" />
+              <LayoutItem Id="LoginAccount" RelativeSize="23.195876288659793" CaptionLocation="Top" Removed="True" />
+              <LayoutItem Id="Name" CaptionLocation="Top" RelativeSize="27.31958762886598" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Transactions_Group" Direction="Vertical" RelativeSize="71.55425219941348" Removed="True">
+            <LayoutItem Id="Transactions" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Patron_ListView" MasterDetailMode="ListViewAndDetailView">
+      <Columns>
+        <ColumnInfo Id="AccountBalance" Index="-1" />
+        <ColumnInfo Id="LoginAccount" Index="-1" />
+        <ColumnInfo Id="Name" Width="240" />
+        <ColumnInfo Id="BirthDate" Width="110" />
+      </Columns>
+      <SplitLayout SplitterPosition="200" />
+    </ListView>
+  </Views>
 </Application>
