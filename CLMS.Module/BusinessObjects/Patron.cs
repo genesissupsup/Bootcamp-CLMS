@@ -1,4 +1,5 @@
 ﻿using DevExpress.ExpressApp.ConditionalAppearance;
+using DevExpress.ExpressApp.Security;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
@@ -44,6 +45,14 @@ namespace CLMS.Module.BusinessObjects
 
                 // --- Add `Patrons` Role
                 loginAccount.Roles.Add(Session.Query<PermissionPolicyRole>().Where(x => x.Name == "Patrons").FirstOrDefault());
+
+                // --- Add Login Info
+                // NOTE: When adidng a new `ApplicationUser` via code, it's important to add its inti`ApplicationUserLoginInfo`
+                var loginInfo = new ApplicationUserLoginInfo(Session);
+                loginInfo.LoginProviderName = SecurityDefaults.PasswordAuthentication;
+                loginInfo.ProviderUserKey = Guid.NewGuid().ToString();
+                loginInfo.User = loginAccount;
+                loginAccount.LoginInfo.Add(loginInfo);
             }
         }
 
@@ -73,7 +82,6 @@ namespace CLMS.Module.BusinessObjects
             get => loginAccount;
             set => SetPropertyValue(nameof(LoginAccount), ref loginAccount, value);
         }
-
         
         public decimal AccountBalance
         {
